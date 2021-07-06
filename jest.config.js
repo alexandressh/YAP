@@ -1,3 +1,7 @@
 module.exports = {
-  projects: ['<rootDir>/apps/characters', '<rootDir>/apps/mybff'],
+  projects: [
+    '<rootDir>/apps/characters',
+    '<rootDir>/apps/mybff',
+    '<rootDir>/apps/dashboard',
+  ],
 };
