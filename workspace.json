@@ -122,6 +122,56 @@
           }
         }
       }
+    },
+    "mybff": {
+      "root": "apps/mybff",
+      "sourceRoot": "apps/mybff/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/mybff",
+            "main": "apps/mybff/src/main.ts",
+            "tsConfig": "apps/mybff/tsconfig.app.json",
+            "assets": ["apps/mybff/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/mybff/src/environments/environment.ts",
+                  "with": "apps/mybff/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "mybff:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/mybff/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/mybff"],
+          "options": {
+            "jestConfig": "apps/mybff/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

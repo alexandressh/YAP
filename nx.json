@@ -33,6 +33,9 @@
     "characters-e2e": {
       "tags": [],
       "implicitDependencies": ["characters"]
+    },
+    "mybff": {
+      "tags": []
     }
   }
 }
